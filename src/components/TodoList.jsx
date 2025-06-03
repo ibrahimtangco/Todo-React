@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 import TodoInput from "./TodoInput";
 import Button from "./Button";
+import Footer from "./Footer";
 
 function TodoList() {
   const todosJSON = localStorage.getItem("todos");
@@ -47,14 +48,14 @@ function TodoList() {
     // localStorage.removeItem("todos");
   }, [todos]);
   return (
-    <div className="bg-white w-full max-w-lg md:min-h-1/2 h-fit rounded-xl p-6 flex flex-col justify-between gap-8 min-w-[28rem]">
-      <div className="px-8">
+    <div className="bg-white min-h-screen min-w-screen flex flex-col justify-between md:w-full md:min-w-80 md:min-h-1/3 md:max-h-fit md:max-w-lg md:rounded-xl overflow-hidden">
+      <div className="p-4">
         <h1 className="text-xl font-semibold bg-gradient-to-tr from-violet-600 to-indigo-600 bg-clip-text text-transparent text-center">
           ToDo App - React JS
         </h1>
         <hr className="border-gray-300 my-6" />
         {/* todo input */}
-        <div className="shadow px-4 py-2 rounded-lg flex items-center justify-between mb-8">
+        <div className="shadow p-2 rounded-lg flex items-center justify-between mb-8">
           <TodoInput newTodo={newTodo} onChange={handleInputChange} />{" "}
           <Button text="Add" onClick={handleAddTodo} />
         </div>
@@ -70,13 +71,10 @@ function TodoList() {
             ))}
           </ul>
         ) : (
-          <p className="text-center text-xl text-gray-400">No ToDos found.</p>
+          <p className="text-center text-gray-400">No ToDos found.</p>
         )}
       </div>
-      <div className="px-8 flex flex-col items-center md:flex-row border-t border-gray-200 pt-4">
-        <span className="w-full">Total ToDos: {todos.length}</span>
-        <span className="w-full">Completed ToDos: {completed}</span>
-      </div>
+      <Footer todos={todos} completed={completed} />
     </div>
   );
 }
