@@ -48,7 +48,7 @@ function TodoList() {
     // localStorage.removeItem("todos");
   }, [todos]);
   return (
-    <div className="bg-white min-h-screen min-w-screen flex flex-col justify-between md:w-full md:min-w-80 md:min-h-1/3 md:max-h-fit md:max-w-lg md:rounded-xl overflow-hidden">
+    <div className="bg-white min-h-screen min-w-screen flex flex-col justify-between md:w-full md:min-w-80 md:h-full md:min-h-[500px] md:max-h-fit md:max-w-lg md:rounded-xl overflow-hidden">
       <div className="p-4">
         <h1 className="text-xl font-semibold bg-gradient-to-tr from-violet-600 to-indigo-600 bg-clip-text text-transparent text-center">
           ToDo App - React JS
