@@ -4,11 +4,11 @@ function TodoItem({ todo, onComplete, onDelete }) {
   return (
     <li
       onClick={() => !todo.completed && onComplete(todo.id)}
-      className={`flex items-center justify-between py-2 px-4 hover:bg-violet-200 transition-colors duration-300 ease-in-out rounded-lg ${
+      className={`flex items-center justify-between gap-4 border-b border-gray-300 py-2 px-4 hover:bg-violet-200 transition-colors duration-300 ease-in-out rounded-lg ${
         todo.completed ? "line-through text-gray-500" : "text-gray-800 "
       }`}
     >
-      {todo.task}
+      <span className="w-full">{todo.task}</span>
       <img
         onClick={() => onDelete(todo.id)}
         src={Close}

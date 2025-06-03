@@ -46,14 +46,14 @@ function TodoList() {
     localStorage.setItem("todos", todoListToJSON);
     // localStorage.removeItem("todos");
   }, [todos]);
-
   return (
-    <div className="bg-white w-full max-w-lg h-full md:max-h-2/3 rounded-xl p-6 flex flex-col justify-between">
-      <div>
+    <div className="bg-white w-full max-w-lg md:min-h-1/2 h-fit rounded-xl p-6 flex flex-col justify-between gap-8 min-w-[28rem]">
+      <div className="px-8">
         <h1 className="text-xl font-semibold bg-gradient-to-tr from-violet-600 to-indigo-600 bg-clip-text text-transparent text-center">
           ToDo App - React JS
         </h1>
         <hr className="border-gray-300 my-6" />
+        {/* todo input */}
         <div className="shadow px-4 py-2 rounded-lg flex items-center justify-between mb-8">
           <TodoInput newTodo={newTodo} onChange={handleInputChange} />{" "}
           <Button text="Add" onClick={handleAddTodo} />
@@ -73,7 +73,7 @@ function TodoList() {
           <p className="text-center text-xl text-gray-400">No ToDos found.</p>
         )}
       </div>
-      <div className="flex items-center justify-between">
+      <div className="px-8 flex flex-col items-center md:flex-row border-t border-gray-200 pt-4">
         <span className="w-full">Total ToDos: {todos.length}</span>
         <span className="w-full">Completed ToDos: {completed}</span>
       </div>
